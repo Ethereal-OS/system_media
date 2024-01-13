@@ -1622,6 +1622,9 @@ static inline audio_channel_mask_t audio_channel_out_mask_from_count(uint32_t ch
     case FCC_8:
         bits = AUDIO_CHANNEL_OUT_7POINT1;
         break;
+    case 10: // 5.1.4
+        bits = AUDIO_CHANNEL_OUT_5POINT1POINT4;
+        break;
     case FCC_12:
         bits = AUDIO_CHANNEL_OUT_7POINT1POINT4;
         break;
@@ -1872,6 +1875,8 @@ static inline bool audio_is_valid_format(audio_format_t format)
     case AUDIO_FORMAT_LHDC_LL:
     case AUDIO_FORMAT_APTX_TWSP:
     case AUDIO_FORMAT_LC3:
+    case AUDIO_FORMAT_APTX_ADAPTIVE_QLEA:
+    case AUDIO_FORMAT_APTX_ADAPTIVE_R4:
         return true;
     case AUDIO_FORMAT_MPEGH:
         switch (format) {
